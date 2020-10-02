@@ -1,22 +1,18 @@
-from dotenv import load_dotenv
-from pathlib import PurePath
 from os import getenv
 
-env_path = PurePath('env', '.env')
-load_dotenv(dotenv_path=env_path)
 
 API_TOKEN = getenv('API_KEY')
 
 POSTGRES_CONFIG = {
-    'host': 'localhost',
-    'user': 'postgres',
-    'password': 'Cesoneemz19',
-    'database': 'aiogram_info_send',
+    'host': getenv('POSTGRES_HOST'),
+    'user': getenv('POSTGRES_USER'),
+    'password': getenv('POSTGRES_PASSWORD),
+    'database': getenv('POSTGRES_DATABASE_FOUR'),
     'port': getenv('POSTGRES_PORT')
         }
 
-ADMIN_ID = ['434903526'] 
+ADMIN_ID = getenv('ADMIN_IDS').split(' ') 
 
 REDIS_CONFIG = {
-        'address': 'redis://localhost',
+        'address': getenv('REDIS_ADDRESS'),
         }
